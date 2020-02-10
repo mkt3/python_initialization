@@ -15,6 +15,8 @@ autopep8 = "^1.5"
 yapf = "^0.29.0"
 isort = "^4.3.21"
 ipykernel = "^5.1.4"
+hydra-core = "^0.11.3"
+mlflow = "^1.6.0"
 
 [build-system]
 requires = ["poetry>=0.12"]
