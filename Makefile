@@ -4,4 +4,4 @@ all: init
 
 init:
 	poetry install
-	./venv/bin/python -m ipykernel install --user --name=$(V_ENV) --display-name=$(V_ENV)
+	./.venv/bin/python -m ipykernel install --user --name=$(V_ENV) --display-name=$(V_ENV)
