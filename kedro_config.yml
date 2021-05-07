@@ -1,0 +1,4 @@
+output_dir: .
+project_name: python-project-template
+repo_name: project
+python_package: python_project_template
