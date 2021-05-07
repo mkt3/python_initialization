@@ -8,11 +8,11 @@ all: help
 help: ## Usage
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-init: poetry kedro; ## create project
+init: poetry kedro git; ## create project
 
 init-jupyter: init jupyter; ## create project with jupyterlab
 
-poetry: ## create .venv by poetry
+poetry: ## create .venv by poetry 
 	sed -i -e 's/python-project-template/$(V_ENV)/g' ./pyproject.toml
 	poetry install
 
