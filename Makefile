@@ -29,6 +29,7 @@ kedro: ## kedro new
 
 git: ## recreate git repo
 	rm -rf .git
+	echo $(V_ENV) > README.md
 	git init
 	git add -A
 	git branch -m master main
