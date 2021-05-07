@@ -1,6 +1,6 @@
 V_ENV = $(lastword $(subst /, ,$(PWD)))
 V_ENV_U = $(subst -,_,$(V_ENV))
-GIT_USER_NAME := $$(git config user.name)
+GIT_USER_NAME := $(shell git config user.name)
 KEDRO_CONFIG_FILE = ./kedro_config.yml
 
 .PHONY: init jupyter init-jupyter poetry kedro git
@@ -32,7 +32,7 @@ git: ## recreate git repo
 	echo $(V_ENV) > README.md
 	git init
 	git add -A
-	git branch -m master main
 	git commit -m "First commit"
+	git branch -m master main
 	git remote add origin git@github.com:$(GIT_USER_NAME)/$(V_ENV).git
 	git push origin main
