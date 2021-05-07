@@ -1,6 +1,8 @@
 V_ENV = $(lastword $(subst /, ,$(PWD)))
 V_ENV_U = $(subst -,_,$(V_ENV))
+GIT_USER_NAME := $$(git config user.name)
 KEDRO_CONFIG_FILE = ./kedro_config.yml
+
 .PHONY: init jupyter init-jupyter poetry kedro git
 
 all: help
@@ -17,6 +19,7 @@ poetry: ## create .venv by poetry
 	poetry install
 
 jupyter: ## set jupyterlab kernel
+	poetry add -D ipykernel
 	./.venv/bin/python -m ipykernel install --user --name=$(V_ENV) --display-name=$(V_ENV)
 
 kedro: ## kedro new 
@@ -27,3 +30,8 @@ kedro: ## kedro new
 git: ## recreate git repo
 	rm -rf .git
 	git init
+	git add -A
+	git branch -m master main
+	git commit -m "First commit"
+	git remote add origin git@github.com:$(GIT_USER_NAME)/$(V_ENV).git
+	git push origin main
