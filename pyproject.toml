@@ -5,9 +5,10 @@ description = ""
 authors = ["mkt3 <mkt3rb@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "=3.8.9"
 
 [tool.poetry.dev-dependencies]
+kedro = "^0.17.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
